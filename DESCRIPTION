@@ -24,6 +24,7 @@ BugReports: https://github.com/Finesya/greencharge/issues
 Imports:
     dplyr,
     ggplot2,
+    magrittr,
     scales
 Config/roxygen2/version: 8.0.0
 Depends: 

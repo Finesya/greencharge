@@ -1,3 +1,4 @@
+#' @importFrom magrittr %>%
 #' @importFrom utils read.csv
 #' @importFrom stats sd
 utils::globalVariables(c(
