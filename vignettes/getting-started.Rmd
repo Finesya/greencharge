@@ -1,0 +1,116 @@
+---
+title: "Getting Started with greencharge"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with greencharge}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Pendahuluan
+
+Package **greencharge** dikembangkan untuk membantu **Operator Stasiun 
+PT Green Charge Indonesia** dalam menerima, memantau, dan mengelola 
+penggunaan energi stasiun pengisian kendaraan listrik (EV).
+
+Dengan package ini, operator tidak perlu lagi melakukan monitoring secara 
+manual — cukup dengan beberapa baris kode R, seluruh informasi kinerja 
+stasiun dapat diperoleh secara otomatis dan akurat.
+
+---
+
+## Instalasi
+
+```r
+devtools::install_github("Finesya/greencharge")
+```
+
+---
+
+## Memuat Package dan Data
+
+Gunakan fungsi `baca_data()` dengan menyertakan path folder 
+tempat file CSV disimpan.
+
+```r
+library(greencharge)
+
+path <- "path/ke/folder/data/"
+data <- baca_data(path)
+```
+
+Fungsi ini mengembalikan list berisi 4 dataframe:
+
+- `data$stasiun` — informasi stasiun pengisian
+- `data$transaksi` — data transaksi pengisian
+- `data$konsumsi_harian` — konsumsi energi harian per stasiun
+- `data$historis` — data historis bulanan
+
+---
+
+## Ringkasan Energi per Stasiun
+
+Fungsi `ringkasan_energi()` menampilkan total sesi pengisian, 
+total kWh tersalurkan, total pendapatan, dan rata-rata kWh per 
+sesi untuk setiap stasiun, diurutkan dari konsumsi tertinggi.
+
+```r
+ringkasan_energi(data$transaksi)
+```
+
+---
+
+## Utilisasi Stasiun
+
+Fungsi `utilisasi_stasiun()` menghitung rata-rata, maksimum, 
+dan minimum tingkat utilisasi (%) tiap stasiun pengisian.
+
+```r
+utilisasi_stasiun(data$konsumsi_harian)
+```
+
+---
+
+## KPI Stasiun
+
+Fungsi `kpi_stasiun()` menggabungkan ringkasan energi dan utilisasi 
+menjadi satu tabel KPI lengkap per stasiun, memudahkan operator 
+dalam memantau kinerja keseluruhan.
+
+```r
+kpi_stasiun(data$transaksi, data$konsumsi_harian)
+```
+
+---
+
+## Deteksi Anomali
+
+Fungsi `deteksi_anomali()` mendeteksi stasiun dengan konsumsi energi 
+yang tidak wajar berdasarkan metode **2 standar deviasi** dari rata-rata 
+konsumsi harian. Hasil berupa tabel stasiun yang terdeteksi anomali 
+beserta keterangannya.
+
+```r
+deteksi_anomali(data$konsumsi_harian)
+```
+
+---
+
+## Visualisasi Tren Konsumsi Energi
+
+Fungsi `plot_konsumsi()` menghasilkan grafik tren konsumsi energi 
+harian (kWh) seluruh stasiun dalam bentuk area chart yang interaktif 
+dan informatif.
+
+```r
+plot_konsumsi(data$konsumsi_harian)
+```
+
+---
+
+## Penutup
+
+Package **greencharge** dirancang agar mudah digunakan oleh operator 
+stasiun tanpa memerlukan keahlian pemrograman yang mendalam. Dengan 
+memanfaatkan package ini, PT Green Charge Indonesia dapat meningkatkan 
+efisiensi operasional dan kualitas pengambilan keputusan berbasis data.

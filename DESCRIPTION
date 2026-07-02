@@ -1,0 +1,28 @@
+Package: greencharge
+Title: Sistem Monitoring Energi Stasiun Pengisian Kendaraan Listrik
+Version: 0.1.0
+Authors@R: 
+    person(
+      "Finesya Aura", "Nadifa",
+      email = "24611004@students.uii.ac.id",
+      role = c("aut", "cre")
+    )
+Description: Package untuk operator stasiun PT Green Charge Indonesia
+    dalam menerima, memantau, dan mengelola penggunaan energi
+    stasiun pengisian kendaraan listrik.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+URL: https://github.com/Finesya/greencharge
+BugReports: https://github.com/Finesya/greencharge/issues
+Imports:
+    dplyr,
+    ggplot2,
+    scales
+Config/roxygen2/version: 8.0.0

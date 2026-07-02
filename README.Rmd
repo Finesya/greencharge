@@ -1,33 +1,34 @@
+---
+output: github_document
+---
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 ## Overview
 
-**greencharge** adalah R package yang dirancang khusus untuk **Operator
-Stasiun PT Green Charge Indonesia** dalam menerima, memantau, dan
-mengelola penggunaan energi stasiun pengisian kendaraan listrik
-(Electric Vehicle/EV).
+**greencharge** adalah R package yang dirancang khusus untuk **Operator Stasiun 
+PT Green Charge Indonesia** dalam menerima, memantau, dan mengelola penggunaan 
+energi stasiun pengisian kendaraan listrik (Electric Vehicle/EV).
 
-Package ini hadir sebagai solusi otomatisasi monitoring yang sebelumnya
-dilakukan secara manual, sehingga operator dapat memperoleh informasi
-kinerja stasiun secara cepat, akurat, dan efisien.
+Package ini hadir sebagai solusi otomatisasi monitoring yang sebelumnya dilakukan 
+secara manual, sehingga operator dapat memperoleh informasi kinerja stasiun 
+secara cepat, akurat, dan efisien.
 
-------------------------------------------------------------------------
+---
 
 ## Instalasi
 
-``` r
+```r
 devtools::install_github("Finesya/greencharge")
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Fungsi yang Tersedia
 
 | Fungsi | Deskripsi |
-|----|----|
+|---|---|
 | `baca_data()` | Membaca file CSV data PT Green Charge Indonesia |
 | `ringkasan_energi()` | Merangkum total sesi, kWh, dan pendapatan per stasiun |
 | `utilisasi_stasiun()` | Menghitung rata-rata utilisasi tiap stasiun pengisian |
@@ -35,13 +36,13 @@ devtools::install_github("Finesya/greencharge")
 | `kpi_stasiun()` | Menampilkan KPI lengkap gabungan energi dan utilisasi |
 | `deteksi_anomali()` | Mendeteksi anomali konsumsi energi berdasarkan standar deviasi |
 
-------------------------------------------------------------------------
+---
 
 ## Contoh Penggunaan
 
 ### Memuat Data
 
-``` r
+```r
 library(greencharge)
 
 path <- "path/ke/folder/data/"
@@ -50,48 +51,48 @@ data <- baca_data(path)
 
 ### Ringkasan Energi
 
-``` r
+```r
 ringkasan_energi(data$transaksi)
 ```
 
 ### Utilisasi Stasiun
 
-``` r
+```r
 utilisasi_stasiun(data$konsumsi_harian)
 ```
 
 ### KPI Stasiun
 
-``` r
+```r
 kpi_stasiun(data$transaksi, data$konsumsi_harian)
 ```
 
 ### Deteksi Anomali
 
-``` r
+```r
 deteksi_anomali(data$konsumsi_harian)
 ```
 
 ### Visualisasi Konsumsi Energi
 
-``` r
+```r
 plot_konsumsi(data$konsumsi_harian)
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Struktur Data yang Diperlukan
 
 Package ini memerlukan 4 file CSV dengan struktur berikut:
 
 | File | Kolom Utama |
-|----|----|
+|---|---|
 | `data_stasiun.csv` | `id_stasiun`, `nama_stasiun`, `kota`, `jumlah_charger`, `tarif_per_kwh` |
 | `data_transaksi.csv` | `id_transaksi`, `id_stasiun`, `tanggal`, `energi_kwh`, `status`, `pendapatan` |
 | `data_konsumsi_harian.csv` | `id_stasiun`, `tanggal`, `total_kwh`, `total_sesi`, `utilisasi_persen` |
 | `data_historis_bulanan.csv` | `bulan`, `periode`, `total_kwh`, `total_sesi`, `total_pendapatan` |
 
-------------------------------------------------------------------------
+---
 
 ## Lisensi
 
