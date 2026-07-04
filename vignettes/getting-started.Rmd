@@ -29,14 +29,13 @@ devtools::install_github("Finesya/greencharge")
 
 ## Memuat Package dan Data
 
-Gunakan fungsi `baca_data()` dengan menyertakan path folder 
-tempat file CSV disimpan.
+Gunakan fungsi `baca_data()` untuk memuat data internal package yang sudah tersedia.
+
 
 ```r
 library(greencharge)
 
-path <- "path/ke/folder/data/"
-data <- baca_data(path)
+data <- baca_data()
 ```
 
 Fungsi ini mengembalikan list berisi 4 dataframe:

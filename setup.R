@@ -79,3 +79,8 @@ system("git push")
 system("git add .")
 system('git commit -m "Update baca_data: load internal data"')
 system("git push")
+
+# Push ke GitHub
+system("git add .")
+system('git commit -m "Update README: baca_data tanpa path, data internal"')
+system("git push")
