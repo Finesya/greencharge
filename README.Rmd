@@ -29,7 +29,7 @@ devtools::install_github("Finesya/greencharge")
 
 | Fungsi | Deskripsi |
 |---|---|
-| `baca_data()` | Membaca file CSV data PT Green Charge Indonesia |
+| `baca_data()` | Memuat data internal PT Green Charge Indonesia |
 | `ringkasan_energi()` | Merangkum total sesi, kWh, dan pendapatan per stasiun |
 | `utilisasi_stasiun()` | Menghitung rata-rata utilisasi tiap stasiun pengisian |
 | `plot_konsumsi()` | Visualisasi tren konsumsi energi harian |
@@ -45,8 +45,7 @@ devtools::install_github("Finesya/greencharge")
 ```r
 library(greencharge)
 
-path <- "path/ke/folder/data/"
-data <- baca_data(path)
+data <- baca_data()
 ```
 
 ### Ringkasan Energi
@@ -81,16 +80,16 @@ plot_konsumsi(data$konsumsi_harian)
 
 ---
 
-## Struktur Data yang Diperlukan
+## Data yang Tersedia
 
-Package ini memerlukan 4 file CSV dengan struktur berikut:
+Package `greencharge` sudah dilengkapi dengan data internal yang dapat langsung digunakan:
 
-| File | Kolom Utama |
+| Data | Deskripsi |
 |---|---|
-| `data_stasiun.csv` | `id_stasiun`, `nama_stasiun`, `kota`, `jumlah_charger`, `tarif_per_kwh` |
-| `data_transaksi.csv` | `id_transaksi`, `id_stasiun`, `tanggal`, `energi_kwh`, `status`, `pendapatan` |
-| `data_konsumsi_harian.csv` | `id_stasiun`, `tanggal`, `total_kwh`, `total_sesi`, `utilisasi_persen` |
-| `data_historis_bulanan.csv` | `bulan`, `periode`, `total_kwh`, `total_sesi`, `total_pendapatan` |
+| `stasiun` | Informasi 10 stasiun pengisian PT Green Charge Indonesia |
+| `transaksi` | 1.500 record transaksi pengisian periode Januari–Juni 2026 |
+| `konsumsi_harian` | Agregasi konsumsi energi harian per stasiun |
+| `bulan_historis` | Agregasi konsumsi energi bulanan |
 
 ---
 

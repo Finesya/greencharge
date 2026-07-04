@@ -75,3 +75,7 @@ system("git push")
 system("git add .")
 system('git commit -m "Add data documentation"')
 system("git push")
+
+system("git add .")
+system('git commit -m "Update baca_data: load internal data"')
+system("git push")
