@@ -2,16 +2,13 @@
 % Please edit documentation in R/baca_data.R
 \name{baca_data}
 \alias{baca_data}
-\title{Baca Data CSV Green Charge}
+\title{Baca Data Internal Green Charge}
 \usage{
-baca_data(path)
-}
-\arguments{
-\item{path}{Path folder tempat file CSV disimpan}
+baca_data()
 }
 \value{
 List berisi dataframe stasiun, transaksi, konsumsi_harian, historis
 }
 \description{
-Baca Data CSV Green Charge
+Baca Data Internal Green Charge
 }
